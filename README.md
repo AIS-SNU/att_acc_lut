@@ -48,7 +48,8 @@ $ python ./trace_gen/sm_trace_attacc_bank.py -n 1 -m 1024 -k 1024
 $ python ./trace_gen/sm_trace_attacc_bank.py -n 1 -m 1024 -k 1024 -p 4 
 --> generate gemv_attacc_bank.trace
 ```
-
+p는 packing factor 
+n x k x m 이 n x k/p x m 이 된다고 대충 가정했음
 
 
 2. Run Ramulator-
@@ -63,3 +64,8 @@ $ ./ramulator2 -f sm_packed_attacc_bank.yaml
 /src/dram/impl/hbm3-pim
 에서 표시해 놓은 파라미터 적절히 고치기!
 MAC commands (`nCCDAB`).
+
+
+## 추가 분석
+log/attacc/ --> sm_attacc_bank.yaml의 실행 로그
+log/attacc-LUT/ --> sm_packed_attacc_bank.yaml의 실행 로그
